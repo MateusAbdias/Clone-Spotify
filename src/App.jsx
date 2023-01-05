@@ -7,7 +7,6 @@ import { reducerCases } from "./utils/Constants";
 import { useStateProvider } from "./utils/StateProvider";
 
 export default function App() {
-
   const [{ token }, dispatch] = useStateProvider();
 
   useEffect(() => {
@@ -17,13 +16,7 @@ export default function App() {
       console.log(token);
       dispatch({ type: reducerCases.SET_TOKEN, token });
     }
-  }, [ token, dispatch ]);
+  }, [token, dispatch]);
 
-  return (
-    <div>
-      {
-        token ? <Spotify /> : <Login />
-}
-    </div>
-  );
+  return <div>{token ? <Spotify /> : <Login />}</div>;
 }
